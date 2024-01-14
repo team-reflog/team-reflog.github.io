@@ -16,7 +16,7 @@ tags: [AWS, GitHub]
 
 이 글은 다음 자료를 참고하여 작성하였습니다.
 
-- [Managing a custom domain for your GitHub Pages site | GitHub Docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
+- [Managing a custom domain for your GitHub Pages site - GitHub Docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)
 
 ## 알아두기
 
@@ -34,7 +34,7 @@ AWS Route 53의 사용할 때 청구되는 요금은 다음과 같습니다.
 
 이 글에서는 호스팅 영역 1개를 생성하고 100만 개 미만의 쿼리를 가정하므로 **한 달에 $0.9의 요금이 청구**됩니다. 자세한 내용은 아래를 참고해주세요.
 
-- [Amazon Route 53 요금 | Amazon Web Services](https://aws.amazon.com/ko/route53/pricing/)
+- [Amazon Route 53 요금 - Amazon Web Services](https://aws.amazon.com/ko/route53/pricing/)
 
 ### 준비물
 
@@ -53,31 +53,31 @@ AWS Route 53의 사용할 때 청구되는 요금은 다음과 같습니다.
 우선 AWS로 이동하여 로그인 후 검색 창에 아래와 같이 검색하여 Route 53 서비스로 이동합니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/c65b4626-5434-4eb4-98c3-c02aa7c613ee/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=244393eec9a3ee345d663d50eaad12dee4f5dfff1f2c68ee8dc1c50a41ea0b92&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/c65b4626-5434-4eb4-98c3-c02aa7c613ee/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=b90cd91741c39a2447cd52d4310f40710f39b8b8408e4857ab045f24ce6f88d0&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 좌측 메뉴에서 `Hosted zone`을 클릭합니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/8e094d52-24fe-4648-b8b9-8b147009a0a7/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=26f23fb451838e5e3dcb363ea2fb69cff5779c80c513c92c15839a2e94778737&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/8e094d52-24fe-4648-b8b9-8b147009a0a7/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=d524e000f0bf41767118f9cf57e799d10ef799757dec57d0fa37aa167a37091f&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 `Create hosted zone`을 눌러 호스팅 영역 생성 화면으로 이동합니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/a406066b-6f25-4360-afb2-a2e9095f9ddc/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=23893ab10c1a28315c7d428fc78e68d99bd27692410560ebe83b1f80c2f165ce&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/a406066b-6f25-4360-afb2-a2e9095f9ddc/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=12ae6dab0c62bb15de53c65b99fa2e8169bf1c6e71507b707e4eb988b93f5d1a&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 `Domain name`에 구입한 도메인을 입력한 후 `Create hosted zone`을 눌러 호스팅 영역을 생성합니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/19d2eaff-9ba5-4d31-84fc-90ed6c8ea726/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=d6065234eec4eef11e3f27a992f9362ce0a8d6323b1de1b4c531ecfce25181a3&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/19d2eaff-9ba5-4d31-84fc-90ed6c8ea726/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=90436e59e9e2eef1c823a1334a6921f3fcf9f464cea6289150a6cc6fe98c67ac&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 다음과 같이 기본적으로 두 레코드가 생성됩니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/da35085f-5eb6-4a1d-a5b9-d8117e34d71e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=06db9e9df2c53917a53717eeef4b221268e8ccc2fee714e2fa715e05fe380b63&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/da35085f-5eb6-4a1d-a5b9-d8117e34d71e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=b12f119c30096a210f04712e246ccdd71259b1353fc9568f738345beebf249b9&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 여기서 NS 레코드의 4개의 값을 도메인 서비스 사이트에서 입력하여 네임 서버를 변경해야합니다. 가비아의 경우 아래 링크를 참고해주세요.
@@ -105,19 +105,19 @@ AWS Route 53의 사용할 때 청구되는 요금은 다음과 같습니다.
 생성한 호스팅 영역 화면에서 `Create record`를 눌러 레코드 생성 창으로 이동합니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/0ef77064-8e8e-4da6-9c1a-13aa414a0aad/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=6e0292f88de9186606f92efcb43d6ee9801a97a858d7ea9817e886239ff9de3a&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/0ef77064-8e8e-4da6-9c1a-13aa414a0aad/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=f8d881c5f7dafe343188f42bb31d98920b51b403833ac0e22672358abbd57c6d&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 원하는 대로 값을 채워 넣습니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/e62eff08-a937-4b48-bac9-83c4da51de5b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=166948b33ef5cb5769db482e210e353adba174878779115b524c867ba0c76ade&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/e62eff08-a937-4b48-bac9-83c4da51de5b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=2dc832b6f4b967a3558b5860b8910f73640a179bae773ea9ad224cb1b71a17bc&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 생성한 CNAME이 생성되었는지 확인합니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/16cad60e-dc35-4e3b-bea1-484f8acaef04/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=f1f6dcf5f1079bc1d1246b2911ee720509a5c6100b47937be3ff6af83e019cc8&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/16cad60e-dc35-4e3b-bea1-484f8acaef04/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=6e50f940cd6b7ea8836091047e2ef734c301946f648807b9b600402f488ca1fa&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 ### CNAME 동작 확인
@@ -134,7 +134,7 @@ dig YOUR_RECORD_NAME +nostats +nocomments +nocmd
 예를 들어 이번 글의 예시의 경우 다음과 같이 입력하여 결과를 확인할 수 있습니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/8eb4f89e-6af9-4433-8fae-482b54b5c82a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=b7a5957f458611b03eb9e1a06feb7ecf55ecd2416b36beb63f78eaf0722c646c&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/8eb4f89e-6af9-4433-8fae-482b54b5c82a/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=0b9a72ee6cb88d6664263bdfa895651f5120996904202fc1f3448078a3589b5d&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 ## GitHub pages 서브 도메인 등록하기
@@ -143,19 +143,19 @@ dig YOUR_RECORD_NAME +nostats +nocomments +nocmd
 이제 거의 다 끝났습니다. GitHub pages 리포지토리에서 `Setting` > `Pages`으로 이동합니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/4a480733-f21f-4abf-b0f2-034118a90f6e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=0ecc9136d61cf6b912cb5885585ae027f5a8e251555da5e47d75615d09880164&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/4a480733-f21f-4abf-b0f2-034118a90f6e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=d29b9f3fe985f7d62394c6e09739a02f9b29eae42c0d3f9d8f5a8eb059d7d7ba&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 `Custom domain` 항목에 생성한 도메인을 입력한 후 `Save`를 눌러 저장합니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/8315df7c-a754-4765-8cbb-8e9a1bc2069f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=c253055395c838db7a981bf3181ceec9670eba8e40c4c708de41c68c47f8de8d&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/8315df7c-a754-4765-8cbb-8e9a1bc2069f/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=b1fe5a74ab0d38d1b8bc92469fd20b96e3cf9ece24890811c0f16862d899d682&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 DNS 확인 프로세스가 실행되고 잠시 후 연결이 정상적으로 완료됩니다.
 
 
-![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/8dabbd1e-2fde-483c-a702-e9e3098f4be4/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T065215Z&X-Amz-Expires=3600&X-Amz-Signature=0195a9c38b04049ec9dc9a35c2aca8abf7f6f569787fe2c8b1f1ab23ff1d70ac&X-Amz-SignedHeaders=host&x-id=GetObject)
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/59f25ad3-0b68-4f51-aa09-d7d59b3488b5/8dabbd1e-2fde-483c-a702-e9e3098f4be4/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240114%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240114T075411Z&X-Amz-Expires=3600&X-Amz-Signature=b531312b8458e5c6ab75351619abb5f1cb80752fd5d148d4a127a6d038ac3f6d&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 ### 확인하기
